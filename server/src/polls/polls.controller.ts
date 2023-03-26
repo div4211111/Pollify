@@ -1,22 +1,24 @@
-import { Body } from '@nestjs/common';
-import { Logger, Post } from '@nestjs/common';
-import { Controller } from '@nestjs/common';
+import { Body, Controller, Post } from '@nestjs/common';
 import { CreatePollDto, JoinPollDto } from './dtos';
+import { PollsService } from './polls.service';
 
 @Controller('polls')
 export class PollsController {
+  constructor(private readonly pollsService: PollsService) { }
   @Post()
   async create(@Body() dto: CreatePollDto) {
-    Logger.log('In create!');
-    return dto;
+    return await this.pollsService.createPoll(dto);
   }
   @Post('join')
   async join(@Body() dto: JoinPollDto) {
-    Logger.log('In join!');
-    return dto;
+    return await this.pollsService.joinPoll(dto);
   }
   @Post('/rejoin')
   async rejoin() {
-    Logger.log('In rejoin!');
+    return await this.pollsService.rejoinPoll({
+      name: '',
+      pollID: '',
+      userID: '',
+    });
   }
 }
