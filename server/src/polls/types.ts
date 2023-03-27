@@ -1,3 +1,5 @@
+import { Request } from '@nestjs/common';
+
 export type CreatePollFields = {
   topic: string;
   votesPerVoter: number;
@@ -27,3 +29,10 @@ export type AddParticipantData = {
   userID: string;
   name: string;
 };
+type AuthPayload = {
+  userID: string;
+  pollID: string;
+  name: string;
+};
+
+export type RequestWithAuth = Request & AuthPayload;
