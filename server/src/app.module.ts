@@ -7,4 +7,4 @@ import { PollsModule } from './polls/polls.module';
   controllers: [],
   providers: [],
 })
-export class AppModule { }
+export class AppModule {}

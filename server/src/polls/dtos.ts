@@ -1,4 +1,4 @@
-import { IsInt, IsString, Length, Max, Min } from 'class-validator';
+import { Length, IsInt, IsString, Min, Max } from 'class-validator';
 
 export class CreatePollDto {
   @IsString()
@@ -14,12 +14,19 @@ export class CreatePollDto {
   @Length(1, 25)
   name: string;
 }
+
 export class JoinPollDto {
   @IsString()
   @Length(6, 6)
   pollID: string;
 
   @IsString()
-  @Length(1, 18)
+  @Length(1, 25)
   name: string;
+}
+
+export class NominationDto {
+  @IsString()
+  @Length(1, 100)
+  text: string;
 }
