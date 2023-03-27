@@ -9,7 +9,7 @@ export class PollsController {
   async create(@Body() dto: CreatePollDto) {
     return await this.pollsService.createPoll(dto);
   }
-  @Post('join')
+  @Post('/join')
   async join(@Body() dto: JoinPollDto) {
     return await this.pollsService.joinPoll(dto);
   }
