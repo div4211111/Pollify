@@ -99,7 +99,7 @@ const Create: React.FC = () => {
           onClick={handleCreatePoll}
           disabled={!areFieldsValid()}
         >
-          Create
+          CReate
         </button>
         <button
           className="box btn-purple w-32 my-2"
